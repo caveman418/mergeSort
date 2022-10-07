@@ -1,6 +1,14 @@
 const result = document.querySelector('.result');
+const input = document.querySelector('#input');
+const btn = document.querySelector('button');
 
-const inputArr = [8, 9, 12, 12, 33, 35, 39, 45, 50, 9, 59, 61, 65, 66, 68, 69, 12, 80, 83, 99];
+btn.addEventListener('mousedown', () => {
+    const str = input.value;
+    const tempArr = str.split(' ');
+    const arr = tempArr.map(num => Number(num));
+    
+    result.textContent = mergeSort(arr);
+});
 
 function mergeSort(input) {
     let arr1, arr2;
@@ -52,5 +60,3 @@ function merge(arr1, arr2) { //compare first element of each input array, one by
 
     return arr3;
 }
-
-result.textContent = mergeSort(inputArr);
